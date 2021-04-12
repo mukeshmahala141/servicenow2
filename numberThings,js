@@ -1,0 +1,10 @@
+var numberThings = new GlideRecord("tablegoeshere");
+numberThings.addQuery("numberfield_here", "");
+numberThings.query();
+while (numberThings.next()) {
+    numberThings.autoSysFields(false);
+    numberThings.setWorkflow(false);
+    var nm = new NumberManager("nameoftable_here");
+    nextNumber.u_number = nm.getNextObjNumberPadded();
+    numberThings.update();
+}
